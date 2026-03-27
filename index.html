@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ERHAD DJ — SYSTEM_ONLINE</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:ital,wght@0,200;0,400;0,700;1,200&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="noise-overlay"></div>
+  <div class="scanlines"></div>
+
+  <!-- CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- HUD CORNERS -->
+  <div class="hud-corner hud-tl"><span class="hud-text">SYS:ONLINE</span><div class="hud-b"></div></div>
+  <div class="hud-corner hud-tr"><span class="hud-text" id="hudTime">00:00:00</span><div class="hud-b"></div></div>
+  <div class="hud-corner hud-bl"><span class="hud-text">VER:2.4.1</span><div class="hud-b"></div></div>
+  <div class="hud-corner hud-br"><span class="hud-text">ERHAD_DJ</span><div class="hud-b"></div></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo"><span class="lb">[</span>ERHAD<span class="ls">DJ</span><span class="lb">]</span></div>
+    <ul class="nav-links">
+      <li><a href="#about"><span class="nn">01/</span>À PROPOS</a></li>
+      <li><a href="#services"><span class="nn">02/</span>SERVICES</a></li>
+      <li><a href="#gallery"><span class="nn">03/</span>GALERIE</a></li>
+      <li><a href="#contact"><span class="nn">04/</span>CONTACT</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta"><span>RÉSERVER</span><div class="cta-scan"></div></a>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about" class="mob-link">À PROPOS</a></li>
+      <li><a href="#services" class="mob-link">SERVICES</a></li>
+      <li><a href="#gallery" class="mob-link">GALERIE</a></li>
+      <li><a href="#contact" class="mob-link">CONTACT</a></li>
+      <li><a href="#contact" class="mob-link cta-mob">— RÉSERVER —</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="hero-grid-overlay"></div>
+    <div class="holo-ring r1"></div>
+    <div class="holo-ring r2"></div>
+    <div class="holo-ring r3"></div>
+
+    <div class="hero-content">
+      <div class="hero-status">
+        <span class="status-dot"></span>
+        <span class="status-text" id="statusText">INITIALIZING SOUND SYSTEM...</span>
+      </div>
+      <div class="hero-title-wrap">
+        <h1 class="hero-title glitch" data-text="ERHAD">ERHAD</h1>
+        <div class="hero-subtitle-row">
+          <div class="sub-line"></div>
+          <span class="hero-dj">DJ</span>
+          <div class="sub-line"></div>
+        </div>
+        <p class="hero-tagline">ALBANIAN · BALKAN · FUTURE SOUNDS</p>
+      </div>
+      <div class="hero-data">
+        <div class="data-block">
+          <div class="data-label">EVENTS_TOTAL</div>
+          <div class="data-value" data-count="500">000</div>
+          <div class="data-bar"><div class="data-bar-fill" style="width:0%" data-w="92%"></div></div>
+        </div>
+        <div class="data-block">
+          <div class="data-label">EXPERIENCE_YRS</div>
+          <div class="data-value" data-count="15">000</div>
+          <div class="data-bar"><div class="data-bar-fill" style="width:0%" data-w="75%"></div></div>
+        </div>
+        <div class="data-block">
+          <div class="data-label">COUNTRIES_PLAYED</div>
+          <div class="data-value" data-count="10">000</div>
+          <div class="data-bar"><div class="data-bar-fill" style="width:0%" data-w="50%"></div></div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-cyber primary">
+          <span>RÉSERVER UN EVENT</span>
+          <div class="bc tl"></div><div class="bc tr"></div>
+          <div class="bc bl"></div><div class="bc br"></div>
+          <div class="btn-scan"></div>
+        </a>
+        <a href="#services" class="btn-cyber ghost">
+          <span>EXPLORER</span>
+          <div class="bc tl"></div><div class="bc tr"></div>
+          <div class="bc bl"></div><div class="bc br"></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="eq-visualizer" id="eqViz"></div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker" id="ticker">
+      <span>// MUZIKË SHQIPTARE</span><span class="tsep">▶</span>
+      <span>BALKAN BEATS</span><span class="tsep">▶</span>
+      <span>HOUSE & TECHNO</span><span class="tsep">▶</span>
+      <span>ORIENTAL VIBES</span><span class="tsep">▶</span>
+      <span>HIP-HOP</span><span class="tsep">▶</span>
+      <span>R&B</span><span class="tsep">▶</span>
+      <span>COMMERCIALE</span><span class="tsep">▶</span>
+      <span>MARIAGE ALBANAIS //</span><span class="tsep">▶</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="bg-grid"></div>
+    <div class="about-inner">
+      <div class="about-visual">
+        <div class="avatar-frame">
+          <div class="avatar-hex">
+            <svg viewBox="0 0 200 230" class="hex-svg">
+              <defs>
+                <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:0.3"/>
+                  <stop offset="100%" style="stop-color:#ff00aa;stop-opacity:0.1"/>
+                </linearGradient>
+              </defs>
+              <polygon points="100,10 190,55 190,175 100,220 10,175 10,55" fill="url(#hg)" stroke="#00f5ff" stroke-width="1" opacity="0.7"/>
+              <polygon points="100,25 177,65 177,165 100,205 23,165 23,65" fill="none" stroke="#ff00aa" stroke-width="0.5" opacity="0.4"/>
+            </svg>
+            <div class="avatar-inner">
+              <svg viewBox="0 0 120 160" class="dj-icon-svg">
+                <circle cx="60" cy="38" r="26" fill="#00f5ff" opacity="0.1" stroke="#00f5ff" stroke-width="1"/>
+                <ellipse cx="60" cy="35" rx="18" ry="20" fill="#0a1a2a"/>
+                <ellipse cx="60" cy="34" rx="16" ry="18" fill="#091525"/>
+                <circle cx="54" cy="32" r="3" fill="#00f5ff" opacity="0.9"/>
+                <circle cx="66" cy="32" r="3" fill="#00f5ff" opacity="0.9"/>
+                <circle cx="54" cy="32" r="1.5" fill="#fff"/>
+                <circle cx="66" cy="32" r="1.5" fill="#fff"/>
+                <path d="M42 35 Q42 12 60 12 Q78 12 78 35" stroke="#00f5ff" stroke-width="3" fill="none"/>
+                <rect x="36" y="32" width="10" height="16" rx="4" fill="#00f5ff" opacity="0.7"/>
+                <rect x="74" y="32" width="10" height="16" rx="4" fill="#00f5ff" opacity="0.7"/>
+                <path d="M28 160 C28 115 92 115 92 160" fill="#091525"/>
+                <rect x="38" y="106" width="44" height="14" rx="3" fill="#ff00aa" opacity="0.5"/>
+                <rect x="20" y="128" width="80" height="8" rx="2" fill="#001122" stroke="#00f5ff" stroke-width="0.5"/>
+                <circle cx="40" cy="132" r="4" fill="none" stroke="#00f5ff" stroke-width="1"/>
+                <circle cx="60" cy="132" r="4" fill="none" stroke="#ff00aa" stroke-width="1"/>
+                <circle cx="80" cy="132" r="4" fill="none" stroke="#00f5ff" stroke-width="1"/>
+              </svg>
+            </div>
+            <div class="avatar-scan"></div>
+          </div>
+          <div class="orbit o1"></div>
+          <div class="orbit o2"></div>
+          <div class="data-point dp1"><span>ALBANIAN</span></div>
+          <div class="data-point dp2"><span>BALKAN</span></div>
+          <div class="data-point dp3"><span>HOUSE</span></div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="sec-tag">// SECTION_01 — ABOUT</div>
+        <h2 class="sec-title">L'ÂME DES<br><em>BALKANS</em><br>RÉINVENTÉE</h2>
+        <div class="terminal">
+          <div class="t-header">
+            <span class="td red"></span><span class="td yellow"></span><span class="td green"></span>
+            <span class="t-name">ERHAD_PROFILE.exe</span>
+          </div>
+          <div class="t-body">
+            <p><span class="tk">NAME:</span> <span class="tv">Erhad DJ</span></p>
+            <p><span class="tk">ORIGIN:</span> <span class="tv">Albania / Balkans</span></p>
+            <p><span class="tk">STYLE:</span> <span class="tv">Albanian · Balkan · House · Oriental</span></p>
+            <p><span class="tk">XP:</span> <span class="tv">15+ ans de scène</span></p>
+            <p><span class="tk">STATUS:</span> <span class="tv cyan">DISPONIBLE_POUR_BOOKING</span></p>
+            <p class="t-desc">Architecte sonore né au cœur de la culture albanaise — Erhad fusionne la chaleur des <span class="thl">Muzikë Shqiptare</span> avec les beats électroniques les plus percutants. De Tirana aux clubs de toute l'Europe.</p>
+            <span class="blink">█</span>
+          </div>
+        </div>
+        <div class="genre-chips">
+          <div class="gc">🎵 Albanaise</div>
+          <div class="gc">🔥 Balkanique</div>
+          <div class="gc">🌙 House</div>
+          <div class="gc">💎 Oriental</div>
+          <div class="gc">🎤 Hip-Hop</div>
+          <div class="gc">✨ Commerciale</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="bg-grid"></div>
+    <div class="services-inner">
+      <div class="sec-tag">// SECTION_02 — SERVICES</div>
+      <h2 class="sec-title">MODULES<br><em>DISPONIBLES</em></h2>
+      <div class="svc-grid">
+        <div class="svc-card" data-id="SVC_01">
+          <div class="svc-num">SVC_01</div>
+          <div class="svc-emoji">💍</div>
+          <h3>MARIAGE ALBANAIS</h3>
+          <div class="svc-sep"></div>
+          <p>De la çifteli aux slows, en passant par tous les hits Balkans. Ambiance traditionnelle et moderne pour un mariage légendaire.</p>
+          <ul>
+            <li><b>GENRE:</b> Albanian Traditional + Modern</li>
+            <li><b>DURÉE:</b> 6h — 12h</li>
+            <li><b>OPTION:</b> Coordination groupe live</li>
+          </ul>
+          <div class="sc tl"></div><div class="sc tr"></div><div class="sc bl"></div><div class="sc br"></div>
+          <div class="svc-glow"></div>
+        </div>
+        <div class="svc-card featured" data-id="SVC_02">
+          <div class="svc-num">SVC_02</div>
+          <div class="svc-badge">// PRIME //</div>
+          <div class="svc-emoji">🎛️</div>
+          <h3>BOÎTE DE NUIT</h3>
+          <div class="svc-sep"></div>
+          <p>Sets explosifs avec transitions parfaites, drops dévastateurs et une énergie qui ne retombe jamais jusqu'à l'aube.</p>
+          <ul>
+            <li><b>GENRE:</b> House · Techno · Balkan · Hip-Hop</li>
+            <li><b>DURÉE:</b> 4h — 8h</li>
+            <li><b>OPTION:</b> Lumières synchronisées</li>
+          </ul>
+          <div class="sc tl"></div><div class="sc tr"></div><div class="sc bl"></div><div class="sc br"></div>
+          <div class="svc-glow"></div>
+        </div>
+        <div class="svc-card" data-id="SVC_03">
+          <div class="svc-num">SVC_03</div>
+          <div class="svc-emoji">🎉</div>
+          <h3>ÉVÉNEMENT PRIVÉ</h3>
+          <div class="svc-sep"></div>
+          <p>Anniversaires, baptêmes, fiançailles, fêtes d'entreprise — chaque occasion mérite une ambiance parfaitement calibrée.</p>
+          <ul>
+            <li><b>GENRE:</b> Sur mesure 100%</li>
+            <li><b>DURÉE:</b> 3h — 8h</li>
+            <li><b>OPTION:</b> Animation + voix off</li>
+          </ul>
+          <div class="sc tl"></div><div class="sc tr"></div><div class="sc bl"></div><div class="sc br"></div>
+          <div class="svc-glow"></div>
+        </div>
+        <div class="svc-card" data-id="SVC_04">
+          <div class="svc-num">SVC_04</div>
+          <div class="svc-emoji">🌍</div>
+          <h3>FESTIVAL & GALA</h3>
+          <div class="svc-sep"></div>
+          <p>Grandes scènes, festivals culturels albanais, galas et soirées de prestige. Erhad maîtrise l'art du grand show.</p>
+          <ul>
+            <li><b>GENRE:</b> All formats</li>
+            <li><b>ZONE:</b> France · Europe · International</li>
+            <li><b>OPTION:</b> Rider technique fourni</li>
+          </ul>
+          <div class="sc tl"></div><div class="sc tr"></div><div class="sc bl"></div><div class="sc br"></div>
+          <div class="svc-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GENRES -->
+  <section class="genres-section">
+    <div class="bg-grid"></div>
+    <div class="genres-inner">
+      <div class="sec-tag center">// SPÉCIALITÉS MUSICALES</div>
+      <div class="genres-wrap">
+        <canvas id="radarCanvas" width="440" height="440"></canvas>
+        <div class="radar-labels">
+          <span class="rl rl1">ALBANIAN</span><span class="rl rl2">BALKAN</span>
+          <span class="rl rl3">HOUSE</span><span class="rl rl4">ORIENTAL</span>
+          <span class="rl rl5">HIP-HOP</span><span class="rl rl6">TECHNO</span>
+          <span class="rl rl7">COMMERCIALE</span><span class="rl rl8">R&B</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="bg-grid"></div>
+    <div class="gallery-inner">
+      <div class="sec-tag">// SECTION_03 — GALERIE</div>
+      <h2 class="sec-title">ARCHIVE<br><em>VISUELLE</em></h2>
+      <div class="gal-grid">
+        <div class="gal-card large">
+          <div class="gal-fill gf1"></div>
+          <div class="gal-hud"><span class="gt">IMG_001</span><span class="gn">CLUB NOIR — TIRANA</span></div>
+          <div class="gc2 tl"></div><div class="gc2 tr"></div><div class="gc2 bl"></div><div class="gc2 br"></div>
+          <div class="gal-scan"></div>
+        </div>
+        <div class="gal-card">
+          <div class="gal-fill gf2"></div>
+          <div class="gal-hud"><span class="gt">IMG_002</span><span class="gn">MARIAGE ALBANAIS</span></div>
+          <div class="gc2 tl"></div><div class="gc2 tr"></div><div class="gc2 bl"></div><div class="gc2 br"></div>
+          <div class="gal-scan"></div>
+        </div>
+        <div class="gal-card">
+          <div class="gal-fill gf3"></div>
+          <div class="gal-hud"><span class="gt">IMG_003</span><span class="gn">FESTIVAL BALKAN</span></div>
+          <div class="gc2 tl"></div><div class="gc2 tr"></div><div class="gc2 bl"></div><div class="gc2 br"></div>
+          <div class="gal-scan"></div>
+        </div>
+        <div class="gal-card">
+          <div class="gal-fill gf4"></div>
+          <div class="gal-hud"><span class="gt">IMG_004</span><span class="gn">SOIRÉE PRIVÉE</span></div>
+          <div class="gc2 tl"></div><div class="gc2 tr"></div><div class="gc2 bl"></div><div class="gc2 br"></div>
+          <div class="gal-scan"></div>
+        </div>
+        <div class="gal-card large">
+          <div class="gal-fill gf5"></div>
+          <div class="gal-hud"><span class="gt">IMG_005</span><span class="gn">GALA DE PRESTIGE</span></div>
+          <div class="gc2 tl"></div><div class="gc2 tr"></div><div class="gc2 bl"></div><div class="gc2 br"></div>
+          <div class="gal-scan"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="bg-grid"></div>
+    <div class="test-inner">
+      <div class="sec-tag center">// FEEDBACK_LOG</div>
+      <div class="test-wrap" id="testSlider">
+        <div class="test-card active">
+          <div class="test-stars">★★★★★ <span>5.0/5.0</span></div>
+          <p>"Erhad a rendu notre mariage magique. Il a joué exactement ce qu'on voulait — de l'albanais traditionnel à 2h du matin jusqu'aux slows à 4h. Tout le monde dansait encore !"</p>
+          <div class="test-user"><div class="tu-id">AK</div><div><strong>Arlinda K.</strong><br><small>// Mariage · Lyon · 2024</small></div></div>
+        </div>
+        <div class="test-card">
+          <div class="test-stars">★★★★★ <span>5.0/5.0</span></div>
+          <p>"Le meilleur set depuis des années. La façon dont il mixe Balkan et House est incroyable. Notre boîte refait appel à lui chaque mois."</p>
+          <div class="test-user"><div class="tu-id">MD</div><div><strong>Marco D.</strong><br><small>// Night Club Manager · Marseille</small></div></div>
+        </div>
+        <div class="test-card">
+          <div class="test-stars">★★★★★ <span>5.0/5.0</span></div>
+          <p>"Professionnel, ponctuel et talentueux. Erhad a transformé notre gala d'entreprise en soirée mémorable. Recommandé les yeux fermés."</p>
+          <div class="test-user"><div class="tu-id">SB</div><div><strong>Sofia B.</strong><br><small>// Event Director · Paris</small></div></div>
+        </div>
+      </div>
+      <div class="test-nav">
+        <button class="tnav-btn" id="tPrev">◀</button>
+        <div class="tdots" id="tDots">
+          <button class="tdot active" data-i="0"></button>
+          <button class="tdot" data-i="1"></button>
+          <button class="tdot" data-i="2"></button>
+        </div>
+        <button class="tnav-btn" id="tNext">▶</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="bg-grid"></div>
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="sec-tag">// SECTION_04 — CONTACT</div>
+        <h2 class="sec-title">INITIER<br><em>CONNEXION</em></h2>
+        <p class="contact-desc">Disponible : France · Albanie · Belgique · Suisse · Europe.<br>Devis gratuit sous 24h.</p>
+        <div class="cinfo">
+          <div class="ci-row"><div class="ci-ico">📞</div><div><span class="ci-lbl">PHONE_LINK</span><span class="ci-val">+33 6 XX XX XX XX</span></div></div>
+          <div class="ci-row"><div class="ci-ico">📧</div><div><span class="ci-lbl">EMAIL_LINK</span><span class="ci-val">booking@erhadDJ.com</span></div></div>
+          <div class="ci-row"><div class="ci-ico">📍</div><div><span class="ci-lbl">BASE_NODE</span><span class="ci-val">Marseille, France</span></div></div>
+        </div>
+        <div class="socials">
+          <a href="#" class="soc-chip">INSTAGRAM</a>
+          <a href="#" class="soc-chip">FACEBOOK</a>
+          <a href="#" class="soc-chip">SOUNDCLOUD</a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="form-top">
+          <span class="td red"></span><span class="td yellow"></span><span class="td green"></span>
+          <span class="form-title">// BOOKING_REQUEST.form</span>
+        </div>
+        <form id="contactForm" novalidate>
+          <div class="fg two">
+            <div class="field"><input type="text" id="cname" placeholder=" " required/><label for="cname">VOTRE NOM</label><div class="fl"></div></div>
+            <div class="field"><input type="email" id="cemail" placeholder=" " required/><label for="cemail">EMAIL</label><div class="fl"></div></div>
+          </div>
+          <div class="fg two">
+            <div class="field"><input type="tel" id="cphone" placeholder=" "/><label for="cphone">TÉLÉPHONE</label><div class="fl"></div></div>
+            <div class="field">
+              <select id="ctype" required>
+                <option value="" disabled selected></option>
+                <option>Mariage</option>
+                <option>Boîte de Nuit</option>
+                <option>Événement Privé</option>
+                <option>Festival / Gala</option>
+                <option>Autre</option>
+              </select>
+              <label for="ctype">TYPE D'ÉVÉNEMENT</label><div class="fl"></div>
+            </div>
+          </div>
+          <div class="fg one">
+            <div class="field"><input type="date" id="cdate" placeholder=" "/><label for="cdate">DATE</label><div class="fl"></div></div>
+          </div>
+          <div class="fg one">
+            <div class="field"><textarea id="cmsg" rows="4" placeholder=" " required></textarea><label for="cmsg">MESSAGE</label><div class="fl"></div></div>
+          </div>
+          <button type="submit" class="btn-submit" id="subBtn">
+            <span id="subText">ENVOYER LA DEMANDE</span>
+            <div class="sub-loader" id="subLoader"></div>
+            <div class="sc2 tl"></div><div class="sc2 tr"></div><div class="sc2 bl"></div><div class="sc2 br"></div>
+            <div class="sub-scan"></div>
+          </button>
+          <div class="form-ok" id="formOk">✓ TRANSMISSION RÉUSSIE — Réponse sous 24h.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><span class="flb">[</span> ERHAD <span class="fls">DJ</span> <span class="flb">]</span></div>
+      <p class="footer-tag">// L'énergie albanaise. La nuit inoubliable.</p>
+      <div class="footer-links">
+        <a href="#about">À PROPOS</a><a href="#services">SERVICES</a>
+        <a href="#gallery">GALERIE</a><a href="#contact">CONTACT</a>
+      </div>
+      <p class="footer-copy">© 2025 ERHAD_DJ · ALL_RIGHTS_RESERVED · SYS_BUILD_2025</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
